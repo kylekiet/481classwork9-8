@@ -1,0 +1,37 @@
+
+# To add an edge
+def addEdge(adj, node_one, node_two, wt):
+	
+	adj[node_one].append([node_one, wt])
+	adj[node_two].append([node_two, wt])
+	return adj
+
+# Print adjacency list representation of graph
+def printGraph(adj, V):
+	
+	v, w = 0, 0
+	for u in range(V):
+		print("Node", u, "makes an edge with")
+
+		for it in adj[u]:
+			v = it[0]
+			w = it[1]
+			print("\tNode", v, "with edge weight =", w)
+			
+		print()
+
+
+
+nodes = 5
+adj = [[] for i in range(nodes)]
+
+
+#AB has an edge weight of 10
+adj = addEdge(adj, "A","B", 10)
+#AC has an edge weight of 15
+adj = addEdge(adj, "A","C", 15)
+adj = addEdge(adj, "B","D", 5)
+adj = addEdge(adj, "D","C", 3)
+adj = addEdge(adj, "E","B", 1)
+
+printGraph(adj, nodes)
